@@ -1,30 +1,49 @@
 import random
 
+def play_game():
+    print_instructions()
+    user_input = difficulty_selection_random_word
+    word_to_guess = difficulty_selection_random_word(user_input)
+    print(word_to_guess)
+    #word_guessed = False
+    #guesses = 0
+    # while not word_guessed and guesses < 10:
+    #     guess = word_difficulty("what difficulty would you like to select easy, normal, or hard")# need a range of letters here)
+        # guesses += 1
+        # count = 10 - guesses
+        # tracking_statement = print(f"You have {count} guesses remaining.")
+        # if word_to_guess
 
-def start_mystery_word():
-    """
-    Starts game
-    """
-    difficulty_selection_random_word
-    store_random_word
-    greet = int(input(""" Welcome to Mystery Word please select a difficulty level between 1 and 3: """))
-    return difficulty_selection_random_word(greet)
-    return store_random_word
+def print_instructions():
+    print("Welcome to Mystery Word once you have selected your difficulty level you will have 10 guesses to figure out the word!")
+    print("Easy Mode will return a word that is 4 to 6 characters long.")
+    print("Normal Mode will return a word that is 5 to 8 characters long.")
+    print("Hard Mode will return a word that is 8+ characters")
 
+# def input_integer(prompt, min=None, max=None): # here, als makes sense to have min = none and max = none because that is defined in the guess variable with the Input_Integer fucntion passed to it  
+#     guess = input(prompt)#takes prompt as argument 
+#     while not (is_integer(guess) and within_range(int(guess), min, max)): # this while loop takes to functions and passes variable into them 
+#         print("What the heck I don't understand you!! It says between 1 and 1000 not whaterver the fuck you just put!!")
+#         guess = input(prompt)
+#     return int(guess)
+
+# def is_integer(string):
+#     return string.isdigit()
+   
 def difficulty_selection_random_word(user_input):
     """
     Chooses the random word based of the of the user selection and returns it to the guess fucnctoin
     """
-    user_input = start_mystery_word
+    difficulty = int(input("please type in 1 for easy, 2 for normal or 3 for hard: "))
+
+    user_input = difficulty
+
     words = []
     with open("words.txt") as words_file:
         for word in words_file.readlines():
             words.append(word.strip())
 
-    
-def store_random_word(user_input):
-    user_input = difficulty_selection_random_word
-    words = []
+    # words = []
     easy_words = [e for e in words if len(e) <= 4 and len(e) <= 6]
     med_words = [e for e in words if len(e) >= 5 and len(e) <= 8]
     hard_words = [e for e in words if len(e) >= 8]
@@ -40,36 +59,6 @@ def store_random_word(user_input):
             user_input = int(input("Please enter 1, 2, or 3: "))
 
 
-start_mystery_word()
-
-# while True:
-#     s = input('Enter something : ')
-#     if s == 'quit':
-#         break
-#     if len(s) < 3:
-#         print('Too small')
-#         continue
-#     print('Input is of sufficient length')
-#     # Do other kinds of processing here...
 
 
-
-# number = 23
-# running = True
-
-# while running:
-#     guess = int(input('Enter an integer : '))
-
-#     if guess == number:
-#         print('Congratulations, you guessed it.')
-#         # this causes the while loop to stop
-#         running = False
-#     elif guess < number:
-#         print('No, it is a little higher than that.')
-#     else:
-#         print('No, it is a little lower than that.')
-# else:
-#     print('The while loop is over.')
-#     # Do anything else you want to do here
-
-# print('Done')
+play_game()
