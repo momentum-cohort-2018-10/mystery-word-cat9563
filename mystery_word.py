@@ -1,21 +1,27 @@
 import random
+# I ended burning way to much time with tryihg to figure my control flow.
+# I didnt complete the other functions I wanted to have for this.
+
 
 def play_game():
     print_instructions()
     user_input = difficulty_selection_random_word
     word_to_guess = difficulty_selection_random_word(user_input)
-    print_word(word_to_guess, guesses)
+    #print_word(word_to_guess, guesses)
     bad_guesses = 0
-    good_guess = []
-    while bad_guesses < 8 and not word_to_guess() # figuge out the right logic
-    #word_guessed = False
-    #guesses = 0
-    # while not word_guessed and guesses < 10:
-    #     guess = word_difficulty("what difficulty would you like to select easy, normal, or hard")# need a range of letters here)
-        # guesses += 1
-        # count = 10 - guesses
-        # tracking_statement = print(f"You have {count} guesses remaining.")
-        # if word_to_guess
+    #good_guess = []
+    prompt = input("enter your guess: ")
+    while bad_guesses < 8 and not word_to_guess:
+        guess = input_string(prompt)
+        print_word(word_to_guess, guess)
+        #good_guess.append(guess)
+        if guess not in word_to_guess:
+            bad_guesses += 1
+            count = 8 - bad_guesses
+            tracking_statement = print(f"You have {count} guesses remaining.")
+            tracking_statement
+        else:
+            print("nice")
 
 def print_instructions():
     print("Welcome to Mystery Word once you have selected your difficulty level you will have 10 guesses to figure out the word!")
@@ -23,10 +29,10 @@ def print_instructions():
     print("Normal Mode will return a word that is 5 to 8 characters long.")
     print("Hard Mode will return a word that is 8+ characters")
 
-def input_string(prompt): # here, als makes sense to have min = none and max = none because that is defined in the guess variable with the Input_Integer fucntion passed to it  
-    guess = input(prompt)#takes prompt as argument 
+def input_string(prompt):
+    guess = input(prompt)
     #bad_input = False
-    while (is_alpha(guess)):  # this while loop takes to functions and passes variable into them 
+    while (is_alpha(guess)):  
         print("Invalid input!")
         guess = input(prompt)
     return str(guess)
